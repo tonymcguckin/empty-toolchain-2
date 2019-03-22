@@ -13,35 +13,32 @@ template:
 toolchain:
   name: 'cloud-functions-apis-toolchain'
 services:
-{{#hostedgit}}
-  repo:
-    service_id: hostedgit
-    parameters:
-      repo_name: 'java-app-{{timestamp}}'
-      repo_url: 'https://www.git.com/open-toolchain/java-spring-microservice'
-      type: clone
-      has_issues: true
-      enable_traceability: true
-{{/hostedgit}}
-{{#githubpublic}}
-  repo:   
-    service_id: githubpublic
-    parameters:
-      repo_name: 'cloud-functions-apis'
-      repo_url: 'https://github.com/tmcguckin/cloud-functions-apis'
-      type: clone
-      has_issues: true
-{{/githubpublic}}
-{{#github_integrated}}
-  repo:
-    service_id: github_integrated
-    parameters:
-      repo_name: '{{toolchain.name}}'
-      repo_url: 'https://cloud.ibm.github.com/open-toolchain/hello-containers'
-      type: clone
-      has_issues: true
-      enable_traceability: true
-{{/github_integrated}}
+  - $$otc_preprocessor: 'hostedgit'
+    repo:
+      service_id: hostedgit
+      parameters:
+        repo_name: 'java-app-{{timestamp}}'
+        repo_url: 'https://www.git.com/open-toolchain/java-spring-microservice'
+        type: clone
+        has_issues: true
+        enable_traceability: true
+  - $$otc_preprocessor: 'githubpublic'
+    repo:   
+      service_id: githubpublic
+      parameters:
+        repo_name: 'cloud-functions-apis'
+        repo_url: 'https://github.com/tmcguckin/cloud-functions-apis'
+        type: clone
+        has_issues: true
+  - $$otc_preprocessor: 'github_integrated'
+    repo:
+      service_id: github_integrated
+      parameters:
+        repo_name: '{{toolchain.name}}'
+        repo_url: 'https://cloud.ibm.github.com/open-toolchain/hello-containers'
+        type: clone
+        has_issues: true
+        enable_traceability: true
   build:
     service_id: pipeline
     parameters:
