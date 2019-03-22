@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Deploy UI",
+    "description": "Empty Toolchain",
+    "longDescription": "The Delivery Pipeline automates continuous deployment.",
+    "type": "object",
+    "properties": {
+      "password": {
+        "description": "Password",
+        "type": "string"
+      },
+      "region": {
+        "description": "Region",
+        "type": "string"
+      },
+      "organization": {
+        "description": "Organisation",
+        "type": "string"
+      },
+      "space": {
+        "description": "Space",
+        "type": "string"
+      },
+      "api-key": {
+        "description": "API key",
+        "type": "string"
+      }
+    },
+    "required": [
+        "password",
+        "region",
+        "organization",
+        "space",
+        "api-key"
+    ],
+    "form": [
+        {
+            "type": "validator",
+            "url": "/devops/setup/bm-helper/helper.html"
+        },
+        {
+	        "type": "password",
+	        "readonly": false,
+	        "title": "IBM Cloud API Key",
+	        "key": "api-key"
+        },
+        {
+	        "type": "text",
+	        "readonly": false,
+	        "title": "Username",
+	        "key": "username"
+        },
+        {
+	        "type": "password",
+	        "readonly": false,
+	        "title": "Password",
+	        "key": "password"
+        },
+        {
+            "type": "table",
+            "columnCount": 3,
+            "widths": [
+                "33%",
+                "33%",
+                "33%"
+            ],
+            "items": [
+                {
+                    "type": "label",
+                    "title": "Region"
+                },
+                {
+                    "type": "label",
+                    "title": "Organisation"
+                },
+                {
+                    "type": "label",
+                    "title": "Space"
+                },
+                {
+                    "type": "select",
+                    "key": "region"
+                },
+                {
+                    "type": "select",
+                    "key": "organization"
+                },
+                {
+                    "type": "select",
+                    "key": "space",
+                    "readonly": false
+                }
+            ]
+        }
+    ]
+}
