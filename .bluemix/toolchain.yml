@@ -13,7 +13,7 @@ template:
 toolchain:
   name: 'cloud-functions-apis-toolchain'
 services:
-  - $$otc_preprocessor: 'hostedgit'
+  - $source_provider: 'hostedgit'
     repo:
       service_id: hostedgit
       parameters:
@@ -22,7 +22,7 @@ services:
         type: clone
         has_issues: true
         enable_traceability: true
-  - $$otc_preprocessor: 'githubpublic'
+  - $source_provider: 'githubpublic'
     repo:   
       service_id: githubpublic
       parameters:
@@ -30,7 +30,7 @@ services:
         repo_url: 'https://github.com/tmcguckin/cloud-functions-apis'
         type: clone
         has_issues: true
-  - $$otc_preprocessor: 'github_integrated'
+  - $source_provider: 'github_integrated'
     repo:
       service_id: github_integrated
       parameters:
