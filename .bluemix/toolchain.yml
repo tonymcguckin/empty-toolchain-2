@@ -13,7 +13,7 @@ template:
 toolchain:
   name: 'cloud-functions-apis-toolchain'
 services:
-  $source_provider:
+  $param_source_provider:
     - $ifdef: 'hostedgit'
       repo:
         service_id: hostedgit
