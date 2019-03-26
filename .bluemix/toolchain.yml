@@ -23,7 +23,7 @@ services:
           type: clone
           has_issues: true
           enable_traceability: true
-    - $idef: 'githubpublic'
+    - $ifdef: 'githubpublic'
       repo:   
         service_id: githubpublic
         parameters:
