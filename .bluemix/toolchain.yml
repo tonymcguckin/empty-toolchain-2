@@ -13,8 +13,8 @@ template:
 toolchain:
   name: 'cloud-functions-apis-toolchain'
 services:
-  $source_providers:
-    - $source_provider: 'hostedgit'
+  $source_provider:
+    - $ifdef: 'hostedgit'
       repo:
         service_id: hostedgit
         parameters:
@@ -23,7 +23,7 @@ services:
           type: clone
           has_issues: true
           enable_traceability: true
-    - $source_provider: 'githubpublic'
+    - $idef: 'githubpublic'
       repo:   
         service_id: githubpublic
         parameters:
@@ -31,7 +31,7 @@ services:
           repo_url: 'https://github.com/tmcguckin/cloud-functions-apis'
           type: clone
           has_issues: true
-    - $source_provider: 'github_integrated'
+    - $ifdef: 'github_integrated'
       repo:
         service_id: github_integrated
         parameters:
