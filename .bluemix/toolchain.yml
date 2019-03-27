@@ -13,7 +13,9 @@ template:
 toolchain:
   name: 'cloud-functions-apis-toolchain'
 services:
-  $param_source_provider:
+  $selection:
+    $parameter: 'source_provider'
+    $options:
     - $ifdef: 'hostedgit'
       repo:
         service_id: hostedgit
