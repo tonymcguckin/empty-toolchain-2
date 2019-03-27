@@ -15,6 +15,7 @@ toolchain:
 services:
   $selection:
     $parameter: 'source_provider'
+    $default: 'githubpublic'
     $options:
     - $ifdef: 'hostedgit'
       repo:
