@@ -14,8 +14,6 @@ toolchain:
   name: 'cloud-functions-apis-toolchain'
 services:
   $selection:
-    $parameter: 'source_provider'
-    $default: 'githubpublic'
     $options:
     - $ifdef: 'hostedgit'
       repo:
